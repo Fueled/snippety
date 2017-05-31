@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Snippety</string>
+
+    <string name="font_proxima_nova_semibold">fonts/ProximaNova-Semibold.otf</string>
+    <string name="font_proxima_nova_bold">fonts/ProximaNova-Bold.otf</string>
+    <string name="font_proxima_nova_xbold">fonts/ProximaNova-Xbold.otf</string>
+</resources>
