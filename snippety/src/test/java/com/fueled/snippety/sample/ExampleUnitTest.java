@@ -1,4 +1,4 @@
-package com.fueled.sample;
+package com.fueled.snippety.sample;
 
 import org.junit.Test;
 

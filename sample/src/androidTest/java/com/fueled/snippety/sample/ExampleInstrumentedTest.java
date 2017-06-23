@@ -1,4 +1,4 @@
-package com.fueled.sample;
+package com.fueled.snippety.sample;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

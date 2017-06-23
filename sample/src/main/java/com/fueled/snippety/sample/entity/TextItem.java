@@ -1,4 +1,4 @@
-package com.fueled.snippety.entity;
+package com.fueled.snippety.sample.entity;
 
 import com.google.gson.annotations.SerializedName;
 

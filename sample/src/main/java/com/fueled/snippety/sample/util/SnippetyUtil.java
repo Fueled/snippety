@@ -1,4 +1,4 @@
-package com.fueled.snippety.core;
+package com.fueled.snippety.sample.util;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -7,8 +7,12 @@ import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 
 import com.fueled.snippety.R;
-import com.fueled.snippety.entity.TextItem;
-import com.fueled.snippety.entity.TextPage;
+import com.fueled.snippety.core.SnipettyAttr;
+import com.fueled.snippety.core.Snippety;
+import com.fueled.snippety.core.Truss;
+import com.fueled.snippety.sample.entity.TextItem;
+import com.fueled.snippety.sample.entity.TextPage;
+
 
 import java.util.List;
 
@@ -117,9 +121,9 @@ public class SnippetyUtil {
 		attr.titleTextColor = ContextCompat.getColor(context, R.color.primary_text);
 		attr.subTitleTextColor = ContextCompat.getColor(context, R.color.primary_text);
 		attr.titleTextFont = Typeface.createFromAsset(context.getAssets(),
-				context.getString(R.string.font_proxima_nova_bold));
+				context.getString(R.string.font_roboto_bold));
 		attr.subtitleTextFont = Typeface.createFromAsset(context.getAssets(),
-				context.getString(R.string.font_proxima_nova_semibold));
+				context.getString(R.string.font_roboto_medium));
 
 		return attr;
 	}

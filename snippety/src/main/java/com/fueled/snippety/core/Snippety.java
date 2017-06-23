@@ -79,8 +79,8 @@ public class Snippety {
 		return this;
 	}
 
-	public Snippety fontStyle(Typeface titleTextFont) {
-		spans.add(new TextTypefaceSpan("", titleTextFont));
+	public Snippety fontStyle(Typeface typeface) {
+		spans.add(new TextTypefaceSpan(typeface));
 		return this;
 	}
 

@@ -3,45 +3,25 @@ package com.fueled.snippety.core;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.text.TextPaint;
+import android.text.style.MetricAffectingSpan;
 import android.text.style.TypefaceSpan;
 
-public class TextTypefaceSpan extends TypefaceSpan {
+public class TextTypefaceSpan extends MetricAffectingSpan {
 
-	private final Typeface newType;
+	private final Typeface typeface;
 
-	public TextTypefaceSpan(String family, Typeface type) {
-		super(family);
-		newType = type;
+	public TextTypefaceSpan(Typeface typeface) {
+		this.typeface = typeface;
 	}
 
-	@Override
-	public void updateDrawState(TextPaint ds) {
-		applyCustomTypeFace(ds, newType);
+	@Override public void updateDrawState(TextPaint tp) {
+		tp.setTypeface(typeface);
+		tp.setFlags(tp.getFlags() | Paint.SUBPIXEL_TEXT_FLAG);
 	}
 
-	@Override
-	public void updateMeasureState(TextPaint paint) {
-		applyCustomTypeFace(paint, newType);
+	@Override public void updateMeasureState(TextPaint p) {
+		p.setTypeface(typeface);
+		p.setFlags(p.getFlags() | Paint.SUBPIXEL_TEXT_FLAG);
 	}
 
-	private static void applyCustomTypeFace(Paint paint, Typeface tf) {
-		int oldStyle;
-		Typeface old = paint.getTypeface();
-		if (old == null) {
-			oldStyle = 0;
-		} else {
-			oldStyle = old.getStyle();
-		}
-
-		int fake = oldStyle & ~tf.getStyle();
-		if ((fake & Typeface.BOLD) != 0) {
-			paint.setFakeBoldText(true);
-		}
-
-		if ((fake & Typeface.ITALIC) != 0) {
-			paint.setTextSkewX(-0.25f);
-		}
-
-		paint.setTypeface(tf);
-	}
 }
