@@ -1,4 +1,4 @@
-package com.fueled.snippety.core;
+package com.fueled.snippety.span;
 
 import android.graphics.Paint;
 import android.graphics.Typeface;

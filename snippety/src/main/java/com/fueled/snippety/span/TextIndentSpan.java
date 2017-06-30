@@ -1,4 +1,4 @@
-package com.fueled.snippety.core;
+package com.fueled.snippety.span;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
