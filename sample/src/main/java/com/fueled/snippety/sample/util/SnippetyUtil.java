@@ -62,7 +62,7 @@ public class SnippetyUtil {
 
 	private static void addTitle(SnipettyAttr attr, String text, Truss truss) {
 		truss.pushSpan(new Snippety().testSizeAbsolute(attr.titleTextSize)
-				.color(attr.titleTextColor)
+				.textColor(attr.titleTextColor)
 				.fontStyle(attr.titleTextFont))
 				.append(text)
 				.popSpan()
@@ -71,7 +71,7 @@ public class SnippetyUtil {
 
 	private static void addSubTitle(SnipettyAttr attr, String text, Truss truss) {
 		truss.pushSpan(new Snippety().testSizeAbsolute(attr.subTitleTextSize)
-				.color(attr.subTitleTextColor)
+				.textColor(attr.subTitleTextColor)
 				.fontStyle(attr.subtitleTextFont))
 				.append(text)
 				.popSpan()
@@ -79,7 +79,7 @@ public class SnippetyUtil {
 	}
 
 	private static void addText(SnipettyAttr attr, String text, Truss truss) {
-		truss.pushSpan(new Snippety().color(attr.textColor))
+		truss.pushSpan(new Snippety().textColor(attr.textColor))
 				.append(text)
 				.popSpan()
 				.newParagraph();
@@ -88,7 +88,7 @@ public class SnippetyUtil {
 	public static void addOrderedList(int textColor, int leadGap, int gapWidth, Truss truss,
 	                                  TextItem item) {
 		for (int i = 0; i < item.list.size(); i++) {
-			truss.pushSpan(new Snippety().number(leadGap, gapWidth, i + 1).color(textColor))
+			truss.pushSpan(new Snippety().number(leadGap, gapWidth, i + 1).textColor(textColor))
 					.append(item.list.get(i))
 					.popSpan()
 					.newLine();
@@ -100,7 +100,7 @@ public class SnippetyUtil {
 	public static void addUnOrderedList(int textColor, int leadGap, int gapWidth, Truss truss,
 	                                    TextItem item) {
 		for (int i = 0; i < item.list.size(); i++) {
-			truss.pushSpan(new Snippety().bullet(leadGap, gapWidth).color(textColor))
+			truss.pushSpan(new Snippety().bullet(leadGap, gapWidth).textColor(textColor))
 					.append(item.list.get(i))
 					.popSpan()
 					.newLine();
