@@ -9,8 +9,14 @@ import android.text.style.BackgroundColorSpan;
 import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
+import android.text.style.QuoteSpan;
 import android.text.style.RelativeSizeSpan;
+import android.text.style.StrikethroughSpan;
 import android.text.style.StyleSpan;
+import android.text.style.SubscriptSpan;
+import android.text.style.SuperscriptSpan;
+import android.text.style.URLSpan;
+import android.text.style.UnderlineSpan;
 import android.view.View;
 
 import com.fueled.snippety.span.MultiColorSpan;
@@ -66,6 +72,36 @@ public class Snippety {
 
     public Snippety roundedBackgroundColor(int backgroundColor, int textColor, int cornerRadius) {
         spans.add(new RoundedBackgroundSpan(backgroundColor, textColor, cornerRadius));
+        return this;
+    }
+
+    public Snippety underline() {
+        spans.add(new UnderlineSpan());
+        return this;
+    }
+
+    public Snippety subscript() {
+        spans.add(new SubscriptSpan());
+        return this;
+    }
+
+    public Snippety superscript() {
+        spans.add(new SuperscriptSpan());
+        return this;
+    }
+
+    public Snippety strikethrough() {
+        spans.add(new StrikethroughSpan());
+        return this;
+    }
+
+    public Snippety url(String url) {
+        spans.add(new URLSpan(url));
+        return this;
+    }
+
+    public Snippety quote(int color) {
+        spans.add(new QuoteSpan(color));
         return this;
     }
 
