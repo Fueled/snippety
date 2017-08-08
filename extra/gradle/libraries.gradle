@@ -1,0 +1,31 @@
+ext {
+
+    //app
+    compileSdk = 25
+    buildTools = "25.0.3"
+    minSdk = 15
+    targetSdk = 25
+    appId = "com.fueled.snippety.sample"
+
+    junitVersion = '4.12'
+    testRunnerVersion = '0.5'
+
+    //android libraries
+    supportVersion = '25.3.0'
+    okioVersion = '1.13.0'
+    gsonVersion = '2.8.1'
+
+    libraries = [
+            appCompat    : "com.android.support:appcompat-v7:${supportVersion}",
+            designSupport: "com.android.support:design:${supportVersion}",
+            okio         : "com.squareup.okio:okio:${okioVersion}",
+            gson         : "com.google.code.gson:gson:${gsonVersion}",
+    ]
+
+    testLibraries = [
+            junit             : "junit:junit:${junitVersion}",
+            supportAnnotations: "com.android.support:support-annotations:${supportVersion}",
+            testRunner        : "com.android.support.test:runner:${testRunnerVersion}",
+    ]
+
+}
