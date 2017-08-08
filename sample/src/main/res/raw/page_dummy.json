@@ -1,0 +1,35 @@
+{
+  "title": "License User Agreement",
+  "subtitle": "Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac facilisis in.",
+  "body": [
+    {
+      "type": "text",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      "type": "numbered",
+      "list": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Aenean lacinia bibendum nulla sed consectetur.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Maecenas faucibus mollis interdum. Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit sit amet non magna. Aenean lacinia bibendum nulla sed consectetur."
+    },
+    {
+      "type": "bullets",
+      "list": [
+        "Lorem ipsum",
+        "dolor sit amet, consectetur adipiscing elit.",
+        "Aenean lacinia bibendum."
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Sed posuere consectetur est at lobortis. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    }
+  ]
+}
+
