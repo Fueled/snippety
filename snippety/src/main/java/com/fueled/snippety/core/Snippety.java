@@ -75,7 +75,7 @@ public class Snippety {
         return this;
     }
 
-    public Snippety indent(Indent indent) {
+    public Snippety align(Indent indent) {
         AlignmentSpan span;
         switch (indent) {
             case LEFT:
@@ -124,10 +124,9 @@ public class Snippety {
         spans.add(new QuoteSpan(color));
         return this;
     }
-    
+
     public Snippety fontStyle(FontStyle fontStyle) {
         StyleSpan span;
-
         switch (fontStyle) {
             case BOLD:
                 span = new StyleSpan(Typeface.BOLD);
@@ -146,7 +145,7 @@ public class Snippety {
         return this;
     }
 
-    public Snippety fontStyle(Typeface typeface) {
+    public Snippety typeface(Typeface typeface) {
         spans.add(new TextTypefaceSpan(typeface));
         return this;
     }
@@ -189,9 +188,9 @@ public class Snippety {
         return this;
     }
 
-    public Snippety image(Drawable d) {
-        d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
-        spans.add(new ImageSpan(d, ImageSpan.ALIGN_BASELINE));
+    public Snippety image(Drawable drawable) {
+        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+        spans.add(new ImageSpan(drawable, ImageSpan.ALIGN_BASELINE));
         return this;
     }
 

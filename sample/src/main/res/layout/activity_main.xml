@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/space_large"
+    android:padding="16dp"
     tools:context="com.fueled.snippety.sample.MainActivity">
 
     <TextView
         android:id="@+id/snippety_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"/>
+        android:text="Hello World!"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"/>
 
 </FrameLayout>

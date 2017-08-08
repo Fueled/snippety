@@ -3,4 +3,5 @@
 
     <string name="font_roboto_medium">fonts/Roboto-Medium.ttf</string>
     <string name="font_roboto_bold">fonts/Roboto-Bold.ttf</string>
+    <string name="font_calligraffitti_regular">fonts/Calligraffitti-Regular.ttf</string>
 </resources>

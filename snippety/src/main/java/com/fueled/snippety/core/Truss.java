@@ -2,6 +2,7 @@ package com.fueled.snippety.core;
 
 import android.support.annotation.NonNull;
 import android.text.SpannableStringBuilder;
+import android.util.Log;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -16,10 +17,11 @@ import static android.text.Spanned.SPAN_INCLUSIVE_EXCLUSIVE;
 
 public class Truss {
 
-    private static final String NEW_LINE = "\n";
-
+    public static final String NEW_LINE = "\n";
+    private static final String DEFAULT_DELIMITER = "`";
     private final SpannableStringBuilder builder;
     private final Deque<Span> stack;
+    private static final String TAG = "Truss";
 
     public Truss() {
         builder = new SpannableStringBuilder();
@@ -29,6 +31,23 @@ public class Truss {
     public Truss append(String string) {
         builder.append(string);
         return this;
+    }
+
+    public Truss appendln(String string) {
+        builder.append(string + NEW_LINE);
+        return this;
+    }
+
+    public Truss append(String s, Object span) {
+        stack.addLast(new Span(builder.length(), span));
+        builder.append(s);
+        return popSpan();
+    }
+
+    public Truss appendln(String s, Object span) {
+        stack.addLast(new Span(builder.length(), span));
+        builder.append(s + NEW_LINE);
+        return popSpan();
     }
 
     public Truss append(CharSequence charSequence) {
@@ -62,22 +81,74 @@ public class Truss {
         return this;
     }
 
-    public static final String SPAN = "`";
-
-    public Truss pushAppendPopSpan(Object span, String fullText) {
-        if (fullText.contains(SPAN)) {
-            String subText = fullText.substring(fullText.indexOf(SPAN) + 1, fullText.lastIndexOf(SPAN));
-            fullText = fullText.replace(SPAN, "");
+    /**
+     * append selective text(s) with delimiter
+     *
+     * @param fullText
+     * @param span
+     * @param delimiter
+     * @return
+     */
+    public Truss appendDelimiterized(String fullText, String delimiter, Object span) {
+        if (null == delimiter || "".equals(delimiter)) {
+            delimiter = DEFAULT_DELIMITER;
+        }
+        int occurences = fullText.split(delimiter).length - 1;
+        Log.d(TAG, "appendDelimiterized: " + occurences);
+        if (fullText.contains(delimiter) && occurences % 2 == 0) {
+            String subText = fullText.substring(fullText.indexOf(delimiter) + 1, fullText.lastIndexOf(delimiter));
+            fullText = fullText.replace(delimiter, "");
             int firstIndexOfSubtext = fullText.indexOf(subText);
             int lastIndexOfSubtext = firstIndexOfSubtext + subText.length();
             append(fullText.substring(0, firstIndexOfSubtext));
-            pushSpan(span);
-            append(fullText.substring(firstIndexOfSubtext, lastIndexOfSubtext));
-            popSpan();
+            append(fullText.substring(firstIndexOfSubtext, lastIndexOfSubtext), span);
             append(fullText.substring(lastIndexOfSubtext, fullText.length()));
         } else {
             append(fullText);
         }
+        return this;
+    }
+
+    /**
+     * append selective text
+     *
+     * @param fullText
+     * @param subText
+     * @param span
+     * @return
+     */
+    public Truss appendSelective(String fullText, String subText, Object span) {
+        builder.append(fullText);
+
+        int lastIndex = 0;
+        int occurences = fullText.split(subText).length - 1;
+
+        for (int i = 0; i < occurences; i++) {
+            int startIndex = fullText.indexOf(subText, lastIndex);
+            int endIndex = startIndex + subText.length();
+
+            if (span instanceof Snippety) {
+                for (Object s : ((Snippety) span).getSpans()) {
+                    setSpan(s, startIndex, endIndex);
+                }
+            } else {
+                setSpan(span, startIndex, endIndex);
+            }
+            lastIndex = endIndex;
+        }
+
+//        if (fullText.contains(subText)) {
+//            int startIndex = fullText.indexOf(subText);
+//            int endIndex = startIndex + subText.length();
+//
+//            if (span instanceof Snippety) {
+//                for (Object s : ((Snippety) span).getSpans()) {
+//                    setSpan(s, startIndex, endIndex);
+//                }
+//            } else {
+//                setSpan(span, startIndex, endIndex);
+//            }
+//        }
         return this;
     }
 
@@ -88,7 +159,7 @@ public class Truss {
      * @param subString The sub string to apply the span on.
      * @return Current instance of Truss.
      */
-    public Truss applySpan(Object span, @NonNull String subString) {
+    public Truss applySpan(@NonNull String subString, Object span) {
         String fullText = builder.toString();
 
         if (fullText.contains(subString)) {
