@@ -139,9 +139,7 @@ public class Snippety {
                 span = new StyleSpan(Typeface.NORMAL);
                 break;
         }
-
         spans.add(span);
-
         return this;
     }
 
@@ -150,13 +148,13 @@ public class Snippety {
         return this;
     }
 
-    public Snippety addListener(final SpanListener spanListener) {
+    public Snippety addOnClickListener(final OnClickListener onClickListener) {
         // Make sure ClickableSpan is at the beginning of the list so other spans can be applied
         // correctly.
         spans.add(0, new ClickableSpan() {
             @Override
             public void onClick(View widget) {
-                spanListener.onSpanClicked();
+                onClickListener.onClicked();
             }
         });
 
@@ -202,7 +200,7 @@ public class Snippety {
         NORMAL, BOLD, ITALIC
     }
 
-    public interface SpanListener {
-        void onSpanClicked();
+    public interface OnClickListener {
+        void onClicked();
     }
 }

@@ -22,6 +22,7 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile libraries.appCompat
+    compile libraries.design
     testCompile testLibraries.junit
 
     compile project(':snippety')

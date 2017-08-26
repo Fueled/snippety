@@ -7,7 +7,7 @@
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
     {
-      "type": "numbered",
+      "type": "numbers",
       "list": [
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "Aenean lacinia bibendum nulla sed consectetur.",

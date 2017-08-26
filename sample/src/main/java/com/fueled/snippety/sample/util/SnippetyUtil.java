@@ -6,10 +6,10 @@ import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 
-import com.fueled.snippety.R;
 import com.fueled.snippety.core.SnipettyAttr;
 import com.fueled.snippety.core.Snippety;
 import com.fueled.snippety.core.Truss;
+import com.fueled.snippety.sample.R;
 import com.fueled.snippety.sample.entity.TextItem;
 import com.fueled.snippety.sample.entity.TextPage;
 
@@ -49,7 +49,7 @@ public class SnippetyUtil {
 	                                        List<TextItem> body) {
 		Truss truss = new Truss();
 		for (TextItem item : body) {
-			if (item.isNumbered()) {
+			if (item.isNumbers()) {
 				addOrderedList(textColor, leadGap, gapWidth, truss, item);
 			} else if (item.isBullets()) {
 				addUnOrderedList(textColor, leadGap, gapWidth, truss, item);

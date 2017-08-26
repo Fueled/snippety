@@ -20,6 +20,7 @@ ext {
             designSupport: "com.android.support:design:${supportVersion}",
             okio         : "com.squareup.okio:okio:${okioVersion}",
             gson         : "com.google.code.gson:gson:${gsonVersion}",
+            design       : "com.android.support:design:${supportVersion}"
     ]
 
     testLibraries = [

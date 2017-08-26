@@ -12,7 +12,7 @@ import java.util.List;
 
 public class TextItem {
 
-    public static final String NUMBERED = "numbered";
+    public static final String NUMBERS = "numbers";
     public static final String BULLETS = "bullets";
     public static final String TEXT = "text";
 
@@ -20,8 +20,8 @@ public class TextItem {
     @SerializedName("text") public String text;
     @SerializedName("list") public List<String> list;
 
-    public boolean isNumbered() {
-        return NUMBERED.equals(type);
+    public boolean isNumbers() {
+        return NUMBERS.equals(type);
     }
 
     public boolean isBullets() {

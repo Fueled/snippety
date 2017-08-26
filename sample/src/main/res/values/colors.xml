@@ -5,6 +5,9 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="black">#000000</color>
+    <color name="app_white">#FFFFFF</color>
+    <color name="primary_text">#181818</color>
+    <color name="secondary_text">#414141</color>
 
     <color name="rainbow_red">#bf0c43</color>
     <color name="rainbow_yellow">#f9ba15</color>
