@@ -54,22 +54,34 @@ public class HtmlFragment extends Fragment {
 
     private CharSequence getHtmlTrussText() {
         return new Truss()
-                .appendSelectiveln("Hey! This is Snippety", "Snippety", new Snippety().textColor(colorAccent))
-                .appendDelimiterizedln("You can also write `HTML`!", "`", new Snippety().textColor(colorAccent))
+                .appendSelectiveln("Hey! This is Snippety", "Snippety",
+                        new Snippety().textColor(colorAccent))  //  ForegroundColorSpan
+                .appendDelimiterizedln("You can also write `HTML`!", "`",
+                        new Snippety().textColor(colorAccent))  //  ForegroundColorSpan
                 .newParagraph()
-                .pushSpan(new Snippety().fontStyle(Snippety.FontStyle.BOLD))
+
+                .pushSpan(new Snippety().fontStyle(Snippety.FontStyle.BOLD))    //  StyleSpan
                 .appendln("Ordered List")
                 .popSpan()
-                .appendln("Number One", new Snippety().number(leadGap, gapWidth, 1))
-                .appendln("Number Two", new Snippety().number(leadGap, gapWidth, 2))
-                .appendln("Number Three", new Snippety().number(leadGap, gapWidth, 2))
+
+                .appendln("Number One",
+                        new Snippety().number(leadGap, gapWidth, 1))    //  TextIndentSpan
+                .appendln("Number Two",
+                        new Snippety().number(leadGap, gapWidth, 2))
+                .appendln("Number Three",
+                        new Snippety().number(leadGap, gapWidth, 2))
+
                 .newParagraph()
-                .pushSpan(new Snippety().fontStyle(Snippety.FontStyle.BOLD))
+                .pushSpan(new Snippety().fontStyle(Snippety.FontStyle.BOLD))    //  StyleSpan
                 .appendln("Unordered List")
                 .popSpan()
-                .appendln("Bullet One", new Snippety().bullet(leadGap, gapWidth))
-                .appendln("Bullet Two", new Snippety().bullet(leadGap, gapWidth))
-                .appendln("Bullet Three", new Snippety().bullet(leadGap, gapWidth))
+
+                .appendln("Bullet One",
+                        new Snippety().bullet(leadGap, gapWidth))   //  TextIndentSpan
+                .appendln("Bullet Two",
+                        new Snippety().bullet(leadGap, gapWidth))
+                .appendln("Bullet Three",
+                        new Snippety().bullet(leadGap, gapWidth))
                 .appendln()
                 .build();
     }

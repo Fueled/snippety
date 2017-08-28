@@ -63,31 +63,65 @@ public class DemoFragment extends Fragment {
 
     private CharSequence getDemoTrussText() {
         return new Truss()
-                .pushSpan(new Snippety().typeface(typeface).testSizeAbsolute(textSize))
-                .appendSelectiveln("Hi! I'm Sunshine, the typeface", "Sunshine", new Snippety().textColor(Color.RED))
+                .pushSpan(new Snippety().typeface(typeface).testSizeAbsolute(textSize)) // Typeface span
+                .appendSelectiveln("Hi! I'm Sunshine, the typeface", "Sunshine",
+                        new Snippety().textColor(Color.RED))    //  ForegroundColorSpan
                 .popSpan()
-                .appendln("I'm bold and straight forward", new Snippety().fontStyle(Snippety.FontStyle.BOLD))
-                .appendln("I love Italian food", new Snippety().fontStyle(Snippety.FontStyle.ITALIC))
-                .appendln("Italian, Mexican and Chinese!", new Snippety().roundedBackgroundColor(Color.RED, Color.WHITE))
-                .appendln("Mom says I'm a big girl", new Snippety().textSizeRelative(2f))
-                .appendln("And I should marry soon", new Snippety().testSizeAbsolute(textSize))
-                .appendln("But I'm just 16sp", new Snippety().textColor(Color.MAGENTA))
-                .appendln("I think I'm young and beautiful", new Snippety().textMultiColor(colorsRainbow))
-                .appendln("My career is just as important", new Snippety().underline())
+
+                .appendln("I'm bold and straight forward",
+                        new Snippety().fontStyle(Snippety.FontStyle.BOLD))  //  StyleSpan
+
+                .appendln("I love Italian food",
+                        new Snippety().fontStyle(Snippety.FontStyle.ITALIC))    //  StyleSpan
+
+                .appendln("Italian, Mexican and Chinese!",
+                        new Snippety().roundedBackgroundColor(Color.RED, Color.WHITE))  //  RoundedBackgroundSpan
+
+                .appendln("Mom says I'm a big girl",
+                        new Snippety().textSizeRelative(2f))    //  RelativeSizeSpan
+
+                .appendln("And I should marry soon",
+                        new Snippety().testSizeAbsolute(textSize))  //  AbsoluteSizeSpan
+
+                .appendln("But I'm just 16sp",
+                        new Snippety().textColor(Color.MAGENTA))    //  ForegroundColorSpan
+
+                .appendln("I think I'm young and beautiful",
+                        new Snippety().textMultiColor(colorsRainbow))   //  MultiColorSpan
+
+                .appendln("My career is just as important",
+                        new Snippety().underline()) //  UnderlineSpan
+
                 .append("I'm an Android Developer ")
-                .appendln(drawable.toString(), new Snippety().image(drawable))
-                .appendln("I did have a boy friend", new Snippety().quote(Color.RED))
-                .appendln("But we broke up one day", new Snippety().strikethrough())
-                .appendln("That's how life is, you can't always be", new Snippety().backgroundColor(Color.YELLOW))
-                .appendln("right..", new Snippety().backgroundColor(Color.YELLOW).align(Snippety.Indent.RIGHT))
-                .appendln("I spend most of my time at work now", new Snippety().url("http://developer.android.com"))
-                .appendln("But I'm hopeful 'cause I know", new Snippety().subscript())
-                .appendln("There's sunshine behind that rain", new Snippety().textColor(Color.BLUE).addOnClickListener(new Snippety.OnClickListener() {
-                    @Override
-                    public void onClick() {
-                        Toast.makeText(getContext(), "Thanks for stopping by!", Toast.LENGTH_SHORT).show();
-                    }
-                }))
+
+                .appendln(drawable.toString(),
+                        new Snippety().image(drawable)) //  ImageSpan
+
+                .appendln("I did have a boy friend",
+                        new Snippety().quote(Color.RED))    //  QuoteSpan
+
+                .appendln("But we broke up one day",
+                        new Snippety().strikethrough()) //  StrikethroughSpan
+
+                .appendln("That's how life is, you can't always be",
+                        new Snippety().backgroundColor(Color.YELLOW))   //  BackgroundColorSpan
+
+                .appendln("right..",
+                        new Snippety().align(Snippety.Indent.RIGHT).backgroundColor(Color.YELLOW))  //  AlignmentSpan
+
+                .appendln("I spend most of my time at work now",
+                        new Snippety().url("http://developer.android.com")) //  URLSpan
+
+                .appendln("But I'm hopeful 'cause I know",
+                        new Snippety().subscript()) //  SubscriptSpan
+
+                .appendln("There's sunshine behind that rain",
+                        new Snippety().textColor(Color.BLUE).addOnClickListener(new Snippety.OnClickListener() {
+                            @Override
+                            public void onClick() {
+                                Toast.makeText(getContext(), "Thanks for stopping by!", Toast.LENGTH_SHORT).show();
+                            }
+                        })) //  ClickableSpan
                 .build();
     }
 }
