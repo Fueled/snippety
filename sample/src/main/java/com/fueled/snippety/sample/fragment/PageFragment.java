@@ -40,10 +40,10 @@ public class PageFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        textView.setText(getTrussForPage());
+        textView.setText(getPageTrussText());
     }
 
-    private CharSequence getTrussForPage() {
+    private CharSequence getPageTrussText() {
         PageClient pageClient = new PageClient(getActivity().getApplication(), new Gson());
         TextPage textPage = pageClient.getTextPage(R.raw.page_dummy);
         return SnippetyUtil.getTrussText(getContext(), textPage);

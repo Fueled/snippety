@@ -3,6 +3,7 @@ package com.fueled.snippety.sample.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +18,8 @@ import com.fueled.snippety.sample.R;
  */
 public class HtmlFragment extends Fragment {
 
-    private int leadGap;
-    private int gapWidth;
+    private int leadGap, gapWidth;
+    private int colorAccent;
 
     private TextView textView;
 
@@ -42,23 +43,34 @@ public class HtmlFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        textView.setText(getTrussForHtml());
+        textView.setText(getHtmlTrussText());
     }
 
     private void initResources() {
         leadGap = getResources().getDimensionPixelOffset(com.fueled.snippety.R.dimen.space_medium);
         gapWidth = getResources().getDimensionPixelOffset(com.fueled.snippety.R.dimen.space_xlarge);
+        colorAccent = ContextCompat.getColor(getContext(), R.color.colorAccent);
     }
 
-    private CharSequence getTrussForHtml() {
+    private CharSequence getHtmlTrussText() {
         return new Truss()
-                .appendln("Bullets List")
-                .appendln("Bullet 1", new Snippety().bullet(leadGap, gapWidth))
-                .appendln("Bullet 2", new Snippety().bullet(leadGap, gapWidth))
+                .appendSelectiveln("Hey! This is Snippety", "Snippety", new Snippety().textColor(colorAccent))
+                .appendDelimiterizedln("You can also write `HTML`!", "`", new Snippety().textColor(colorAccent))
+                .newParagraph()
+                .pushSpan(new Snippety().fontStyle(Snippety.FontStyle.BOLD))
+                .appendln("Ordered List")
+                .popSpan()
+                .appendln("Number One", new Snippety().number(leadGap, gapWidth, 1))
+                .appendln("Number Two", new Snippety().number(leadGap, gapWidth, 2))
+                .appendln("Number Three", new Snippety().number(leadGap, gapWidth, 2))
+                .newParagraph()
+                .pushSpan(new Snippety().fontStyle(Snippety.FontStyle.BOLD))
+                .appendln("Unordered List")
+                .popSpan()
+                .appendln("Bullet One", new Snippety().bullet(leadGap, gapWidth))
+                .appendln("Bullet Two", new Snippety().bullet(leadGap, gapWidth))
+                .appendln("Bullet Three", new Snippety().bullet(leadGap, gapWidth))
                 .appendln()
-                .appendln("Numbered List")
-                .appendln("Number 1", new Snippety().number(leadGap, gapWidth, 1))
-                .appendln("Number 2", new Snippety().number(leadGap, gapWidth, 2))
                 .build();
     }
 }
