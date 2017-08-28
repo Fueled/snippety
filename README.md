@@ -1,1 +1,190 @@
-# snippety
+# snippety-android
+
+A wrapper class on top of `SpannableStringBuilder` with utility methods for android and custom spans.
+You can trust `Snippety` and `Truss` (by Jake Warton) to write cool text snippets which might be a pain in the neck otherwise.
+
+<img src="./README_images/demo_screenshot.png" width="345" height="617"/><img src="./README_images/page_screenshot.png" width="345" height="617"/>
+
+# Installation
+
+Add the following dependency to your `build.gradle`:
+
+```
+compile 'com.fueled.snippety:{latest_version}'
+```
+
+# How to use
+
+## Using Truss:
+
+`Truss` returns a `CharSequence`. There are 2 ways to use it:
+
+1. `pushSpan(anySpan())`, `append(anyString())` and `popSpan()`
+
+```java
+    CharSequence text = new Truss()
+            .pushSpan(new BackgroundColorSpan(Color.RED))
+            .append("Hello Snippety")
+            .popSpan()
+            .build();
+
+```
+
+2. `append(anyString(), anySpan())`
+
+```java
+    CharSequence text = new Truss()
+            .append("Hello Snippety", new BackgroundColorSpan(Color.RED))
+            .build();
+```
+
+## Using Snippety
+
+`Snippety` could be thought of as a collection of different spans which can be substituted with actual span(s).
+
+```java
+    CharSequence text = new Truss()
+            .append("Hello Snippety", new Snippety().backgroundColor(Color.RED))
+            .build();
+```
+
+You can also add multiple span attributes at a time.
+
+```java
+    CharSequence text = new Truss()
+            .append("Hello Snippety", new Snippety().backgroundColor(Color.RED).textColor(Color.WHITE))
+            .build();
+```
+
+## Finally
+
+Set the `CharSequence` returned by Truss to your `TextView`.
+
+```java
+    textView.setText(new Truss()
+            .append(new Snippety().backgroundColor(Color.RED).textColor(Color.WHITE))
+            .build());
+```
+
+Attach Click Listener to some text:
+
+```java
+    textView.setText(new Truss()
+            .append("Click Me!", new Snippety.OnClickListener() {
+                                    @Override
+                                    public void onClick() {
+                                        Toast.makeText(getContext(), "Thanks for stopping by!", Toast.LENGTH_SHORT).show();
+                                    }
+                                })
+            .build());
+```
+
+# Demo
+
+Here is how you can achieve the demo screenshot attached
+
+```java
+    textView.setText(new Truss()
+            .pushSpan(new Snippety().typeface(typeface).testSizeAbsolute(textSize))
+            .appendSelectiveln("Hi! I'm Sunshine, the typeface", "Sunshine", new Snippety().textColor(Color.RED))
+            .popSpan()
+            .appendln("I'm bold and straight forward", new Snippety().fontStyle(Snippety.FontStyle.BOLD))
+            .appendln("I love Italian food", new Snippety().fontStyle(Snippety.FontStyle.ITALIC))
+            .appendln("Italian, Mexican and Chinese!", new Snippety().roundedBackgroundColor(Color.RED, Color.WHITE))
+            .appendln("Mom says I'm a big girl", new Snippety().textSizeRelative(2f))
+            .appendln("And I should marry soon", new Snippety().testSizeAbsolute(textSize))
+            .appendln("But I'm just 16sp", new Snippety().textColor(Color.MAGENTA))
+            .appendln("I think I'm young and beautiful", new Snippety().textMultiColor(colorsRainbow))
+            .appendln("My career is just as important", new Snippety().underline())
+            .append("I'm an Android Developer ")
+            .appendln(drawable.toString(), new Snippety().image(drawable))
+            .appendln("I did have a boy friend", new Snippety().quote(Color.RED))
+            .appendln("But we broke up one day", new Snippety().strikethrough())
+            .appendln("That's how life is, you can't always be", new Snippety().backgroundColor(Color.YELLOW))
+            .appendln("right..", new Snippety().backgroundColor(Color.YELLOW).align(Snippety.Indent.RIGHT))
+            .appendln("I spend most of my time at work now", new Snippety().url("http://developer.android.com"))
+            .appendln("But I'm hopeful 'cause I know", new Snippety().subscript())
+            .appendln("There's sunshine behind that rain", new Snippety().textColor(Color.BLUE).addOnClickListener(new Snippety.OnClickListener() {
+                @Override
+                public void onClick() {
+                    Toast.makeText(getContext(), "Thanks for stopping by!", Toast.LENGTH_SHORT).show();
+                }
+            }))
+            .build());
+```
+
+# Snippety Snippets
+
+Here are some code snippets for `Snippety` spans (tongue twister :D)
+
+- Typeface
+
+```java
+    Typeface typeface = Typeface.createFromAsset(getContext().getAssets(), getString(R.string.font_sunshiney));
+    textView.setText(new Truss()
+            .append("Hello Snippety", new Snippety().typeface(typeface))
+            .build());
+```
+
+- Font Style
+
+```java
+    textView.setText(new Truss()
+            .append("Hello Snippety", new Snippety().fontStyle(Snippety.FontStyle.BOLD))
+            .build());
+```
+
+- Image Drawable
+
+```java
+    Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.ic_android_green_24dp);
+    textView.setText(new Truss()
+            .append(drawable.toString(), new Snippety().image(drawable))
+            .build());
+```
+
+- Align
+
+```java
+    textView.setText(new Truss()
+            .append("Hello Snippety", new Snippety().align(Snippety.Indent.RIGHT))
+            .build());
+```
+
+- Background Color
+
+```java
+    textView.setText(new Truss()
+            .append("Hello Snippety", new Snippety().backgroundColor(Color.RED))
+            .build());
+```
+
+- Rounded Background Color
+
+```java
+    textView.setText(new Truss()
+            .append("Hello Snippety", new Snippety().roundedBackgroundColor(Color.RED, Color.WHITE))
+            .build());
+```
+
+- Text Color
+
+```java
+    textView.setText(new Truss()
+            .append("Hello Snippety", new Snippety().textColor(Color.BLUE))
+            .build());
+```
+
+- Text Multi Color
+
+```java
+    int[] colorsRainbow = getResources().getIntArray(R.array.rainbow);
+    textView.setText(new Truss()
+            .append("Hello Snippety", new Snippety().textMultiColor(colorsRainbow))
+            .build());
+```
+
+# References:
+
+- [JakeWharton/Truss.java](https://gist.github.com/JakeWharton/11274467)
+
