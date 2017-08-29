@@ -1,7 +1,7 @@
 # snippety-android
 
 A wrapper class on top of `SpannableStringBuilder` with utility methods for android and custom spans.
-You can trust `Snippety` and `Truss` (by Jake Warton) to write cool text snippets which might be a pain in the neck otherwise.
+You can trust [Snippety](./snippety/src/main/java/com/fueled/snippety/core/Snippety.java) and [Truss](./snippety/src/main/java/com/fueled/snippety/core/Truss.java) (by Jake Warton) to write cool text snippets which might be a pain in the neck otherwise.
 
 <img src="./README_images/demo_screenshot.png" width="345" height="617"/><img src="./README_images/page_screenshot.png" width="345" height="617"/>
 
@@ -17,9 +17,9 @@ compile 'com.fueled.snippety:{latest_version}'
 
 ## Using Truss:
 
-`Truss` returns a `CharSequence`. There are 2 ways to use it:
+`Truss` returns a `CharSequence`. There are 2 ways of using it:
 
-1. `pushSpan(anySpan())`, `append(anyString())` and `popSpan()`
+1. Nested append : `pushSpan(anySpan())`, `append(anyString())` and `popSpan()`
 
 ```java
 CharSequence text = new Truss()
@@ -30,7 +30,7 @@ CharSequence text = new Truss()
 
 ```
 
-2. `append(anyString(), anySpan())`
+2. Inline append : `append(anyString(), anySpan())`
 
 ```java
 CharSequence text = new Truss()
@@ -66,7 +66,7 @@ textView.setText(new Truss()
         .build());
 ```
 
-Attach Click Listener to some text:
+Attach `OnClickListener` to some text:
 
 ```java
 textView.setText(new Truss()
@@ -85,7 +85,8 @@ Here is how you can achieve the demo screenshot attached
 
 ```java
 textView.setText(new Truss()
-        .pushSpan(new Snippety().typeface(typeface).testSizeAbsolute(textSize)) // Typeface span
+
+        .pushSpan(new Snippety().typeface(typeface).testSizeAbsolute(textSize)) // TextTypefaceSpan
         .appendSelectiveln("Hi! I'm Sunshine, the typeface", "Sunshine",
                 new Snippety().textColor(Color.RED))    //  ForegroundColorSpan
         .popSpan()
@@ -221,11 +222,12 @@ textView.setText(new Truss()
 - Ordered List
 
 ```java
-int leadGap = getResources().getDimensionPixelOffset(com.fueled.snippety.R.dimen.space_medium);
-int gapWidth = getResources().getDimensionPixelOffset(com.fueled.snippety.R.dimen.space_xlarge);
+int leadGap = getResources().getDimensionPixelOffset(R.dimen.space_medium);
+int gapWidth = getResources().getDimensionPixelOffset(R.dimen.space_xlarge);
 textView.setText(new Truss()
         .appendln("Number One", new Snippety().number(leadGap, gapWidth, 1))
         .appendln("Number Two", new Snippety().number(leadGap, gapWidth, 2))
+        .appendln("Number Three", new Snippety().number(leadGap, gapWidth, 3))
         .build());
 ```
 

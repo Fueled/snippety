@@ -63,7 +63,8 @@ public class DemoFragment extends Fragment {
 
     private CharSequence getDemoTrussText() {
         return new Truss()
-                .pushSpan(new Snippety().typeface(typeface).testSizeAbsolute(textSize)) // Typeface span
+
+                .pushSpan(new Snippety().typeface(typeface).testSizeAbsolute(textSize)) // TextTypefaceSpan
                 .appendSelectiveln("Hi! I'm Sunshine, the typeface", "Sunshine",
                         new Snippety().textColor(Color.RED))    //  ForegroundColorSpan
                 .popSpan()
