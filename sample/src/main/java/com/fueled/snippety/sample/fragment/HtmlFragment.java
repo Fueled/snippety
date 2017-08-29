@@ -47,13 +47,14 @@ public class HtmlFragment extends Fragment {
     }
 
     private void initResources() {
-        leadGap = getResources().getDimensionPixelOffset(com.fueled.snippety.R.dimen.space_medium);
-        gapWidth = getResources().getDimensionPixelOffset(com.fueled.snippety.R.dimen.space_xlarge);
+        leadGap = getResources().getDimensionPixelOffset(R.dimen.space_medium);
+        gapWidth = getResources().getDimensionPixelOffset(R.dimen.space_xlarge);
         colorAccent = ContextCompat.getColor(getContext(), R.color.colorAccent);
     }
 
     private CharSequence getHtmlTrussText() {
         return new Truss()
+
                 .appendSelectiveln("Hey! This is Snippety", "Snippety",
                         new Snippety().textColor(colorAccent))  //  ForegroundColorSpan
                 .appendDelimiterizedln("You can also write `HTML`!", "`",
