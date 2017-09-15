@@ -10,6 +10,10 @@ ext {
     junitVersion = '4.12'
     testRunnerVersion = '0.5'
 
+    //library
+    libraryGroup = 'com.github.fueled'
+    libraryVersion = '1.0.0'
+
     //android libraries
     supportVersion = '25.3.0'
     okioVersion = '1.13.0'
