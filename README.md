@@ -1,4 +1,4 @@
-# snippety-android
+# snippety-android [![](https://jitpack.io/v/Fueled/snippety.svg)](https://jitpack.io/#Fueled/snippety)
 
 A wrapper class on top of `SpannableStringBuilder` with utility methods for android and custom spans.
 You can trust [Snippety](./snippety/src/main/java/com/fueled/snippety/core/Snippety.java) and [Truss](./snippety/src/main/java/com/fueled/snippety/core/Truss.java) (by Jake Warton) to write cool text snippets which might be a pain in the neck otherwise.
