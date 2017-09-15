@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion compileSdk
     buildToolsVersion buildTools
+
     defaultConfig {
         applicationId appId
         minSdkVersion minSdk
