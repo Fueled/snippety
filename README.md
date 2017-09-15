@@ -7,10 +7,23 @@ You can trust [Snippety](./snippety/src/main/java/com/fueled/snippety/core/Snipp
 
 # Installation
 
-Add the following dependency to your `build.gradle`:
+Add the following to your root `build.gradle` at the end of repositories:
 
 ```groovy
-compile 'com.fueled.snippety:{latest_version}'
+allprojects {
+    repositories {
+        ...
+        maven { url "https://jitpack.io" }
+    }
+}
+```
+
+Add the following dependency to your app `build.gradle`:
+
+```groovy
+dependencies {
+    compile 'com.github.fueled.snippety:{latest_version}'
+}
 ```
 
 # How to use
@@ -19,7 +32,7 @@ compile 'com.fueled.snippety:{latest_version}'
 
 `Truss` returns a `CharSequence`. There are 2 ways of using it:
 
-1. Nested append : `pushSpan(anySpan())`, `append(anyString())` and `popSpan()`
+1. Nested append : `pushSpan(Span)`, `append(String)` and `popSpan()`
 
 ```java
 CharSequence text = new Truss()
@@ -30,7 +43,7 @@ CharSequence text = new Truss()
 
 ```
 
-2. Inline append : `append(anyString(), anySpan())`
+2. Inline append : `append(String, Span)`
 
 ```java
 CharSequence text = new Truss()
