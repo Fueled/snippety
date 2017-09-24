@@ -285,7 +285,7 @@ public class Snippety {
      * @param size of text
      * @return Snippety
      */
-    public Snippety testSizeAbsolute(int size) {
+    public Snippety textSizeAbsolute(int size) {
         spans.add(new AbsoluteSizeSpan(size));
         return this;
     }

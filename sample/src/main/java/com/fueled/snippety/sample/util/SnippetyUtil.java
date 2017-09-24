@@ -61,7 +61,7 @@ public class SnippetyUtil {
 	}
 
 	private static void addTitle(SnipettyAttr attr, String text, Truss truss) {
-		truss.pushSpan(new Snippety().testSizeAbsolute(attr.titleTextSize)
+		truss.pushSpan(new Snippety().textSizeAbsolute(attr.titleTextSize)
 				.textColor(attr.titleTextColor)
 				.typeface(attr.titleTextFont))
 				.append(text)
@@ -70,7 +70,7 @@ public class SnippetyUtil {
 	}
 
 	private static void addSubTitle(SnipettyAttr attr, String text, Truss truss) {
-		truss.pushSpan(new Snippety().testSizeAbsolute(attr.subTitleTextSize)
+		truss.pushSpan(new Snippety().textSizeAbsolute(attr.subTitleTextSize)
 				.textColor(attr.subTitleTextColor)
 				.typeface(attr.subtitleTextFont))
 				.append(text)
