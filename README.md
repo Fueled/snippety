@@ -3,7 +3,7 @@
 A wrapper class on top of `SpannableStringBuilder` with utility methods for android and custom spans.
 You can trust [Snippety](./snippety/src/main/java/com/fueled/snippety/core/Snippety.java) and [Truss](./snippety/src/main/java/com/fueled/snippety/core/Truss.java) (by Jake Warton) to write cool text snippets which might be a pain in the neck otherwise.
 
-<img src="./README_images/demo_screenshot.png" width="345" height="617"/><img src="./README_images/page_screenshot.png" width="345" height="617"/>
+<img src="./README_images/snippety_demo_screenshot.png" width="345" height="617"/><img src="./README_images/snippety_page_screenshot.png" width="345" height="617"/>
 
 # Installation
 
