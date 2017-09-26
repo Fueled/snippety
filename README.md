@@ -22,7 +22,7 @@ Add the following dependency to your app `build.gradle`:
 
 ```groovy
 dependencies {
-    compile 'com.github.fueled.snippety:{latest_version}'
+    compile 'com.github.fueled:snippety:{latest_version}'
 }
 ```
 
