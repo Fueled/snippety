@@ -31,3 +31,13 @@ dependencies {
 
     compile libraries.gson
 }
+
+// quick fix for https://github.com/jitpack/jitpack.io/issues/2189
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+artifacts {
+    archives sourcesJar
+}
+// end quick fix for https://github.com/jitpack/jitpack.io/issues/2189
