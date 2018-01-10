@@ -74,12 +74,9 @@ public class HtmlFragment extends Fragment {
                 .appendln("Ordered List", new Snippety().fontStyle(Snippety.FontStyle.BOLD))
                 .appendln(new Snippety().hr(oneDp, colorGrey))
 
-                .appendln("Number One",
-                        new Snippety().number(leadGap, gapWidth, 1))    //  TextIndentSpan
-                .appendln("Number Two",
-                        new Snippety().number(leadGap, gapWidth, 2))
-                .appendln("Number Three",
-                        new Snippety().number(leadGap, gapWidth, 3))
+                .appendln("Number One", new Snippety().number(leadGap, gapWidth, 1))    //  TextIndentSpan
+                .appendln("Number Two", new Snippety().number(leadGap, gapWidth, 2))
+                .appendln("Number Three", new Snippety().number(leadGap, gapWidth, 3))
                 .appendln()
 
                 // Unordered List
@@ -87,12 +84,9 @@ public class HtmlFragment extends Fragment {
                 .appendln("Unordered List", new Snippety().fontStyle(Snippety.FontStyle.BOLD))
                 .appendln(new Snippety().hr(oneDp, colorGrey))
 
-                .appendln("Bullet One",
-                        new Snippety().bullet(leadGap, gapWidth))               //  TextIndentSpan
-                .appendln("Bullet Two",
-                        new Snippety().bullet(leadGap, gapWidth))
-                .appendln("Bullet Three",
-                        new Snippety().bullet(leadGap, gapWidth))
+                .appendln("Bullet One", new Snippety().bullet(leadGap, gapWidth))               //  TextIndentSpan
+                .appendln("Bullet Two", new Snippety().bullet(leadGap, gapWidth))
+                .appendln("Bullet Three", new Snippety().bullet(leadGap, gapWidth))
                 .appendln()
 
                 // Custom Unordered List
@@ -100,12 +94,9 @@ public class HtmlFragment extends Fragment {
                 .appendln("Custom Unordered List", new Snippety().fontStyle(Snippety.FontStyle.BOLD))
                 .appendln(new Snippety().hr(oneDp, colorGrey))
 
-                .appendln("Custom Bullet One",
-                        new Snippety().imageBullet(bitmap, leadGap))
-                .appendln("Custom Bullet Two",
-                        new Snippety().imageBullet(bitmap, leadGap))
-                .appendln("Custom Bullet Three",
-                        new Snippety().imageBullet(bitmap, leadGap))
+                .appendln("Custom Bullet One", new Snippety().imageBullet(bitmap, leadGap))     //  IconMarginSpan
+                .appendln("Custom Bullet Two", new Snippety().imageBullet(bitmap, leadGap))
+                .appendln("Custom Bullet Three", new Snippety().imageBullet(bitmap, leadGap))
                 .appendln()
 
                 .build();
