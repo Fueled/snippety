@@ -9,6 +9,8 @@
     <color name="primary_text">#181818</color>
     <color name="secondary_text">#414141</color>
 
+    <color name="grey_light">#ECECEC</color>
+
     <color name="rainbow_red">#bf0c43</color>
     <color name="rainbow_yellow">#f9ba15</color>
     <color name="rainbow_green">#8eac00</color>

@@ -7,6 +7,8 @@
     <dimen name="toolbar_title_right_margin">59dp</dimen>
 
     <!--- General -->
+    <dimen name="one_dp">1dp</dimen>
+    <dimen name="two_dp">2dp</dimen>
     <dimen name="space_low">4dp</dimen>
     <dimen name="space">8dp</dimen>
     <dimen name="space_medium">12dp</dimen>

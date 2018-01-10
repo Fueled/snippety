@@ -6,6 +6,10 @@ import android.graphics.Typeface;
 import android.text.Layout;
 import android.text.style.LeadingMarginSpan;
 
+/**
+ * Indents the text with specified leadWidth and gapWidth.
+ */
+
 public class TextIndentSpan implements LeadingMarginSpan {
 
     private final String data;
@@ -24,6 +28,7 @@ public class TextIndentSpan implements LeadingMarginSpan {
         this.data = data;
     }
 
+    @Override
     public int getLeadingMargin(boolean first) {
         return options.leadWidth + options.gapWidth;
     }
@@ -47,7 +52,9 @@ public class TextIndentSpan implements LeadingMarginSpan {
                 paint.setTypeface(options.typeface);
             }
 
+            c.save();
             c.drawText(data,  x + options.leadWidth, baseline, paint);
+            c.restore();
         }
     }
 

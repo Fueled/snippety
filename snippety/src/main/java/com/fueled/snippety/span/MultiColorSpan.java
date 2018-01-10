@@ -8,6 +8,12 @@ import android.text.TextPaint;
 import android.text.style.CharacterStyle;
 import android.text.style.UpdateAppearance;
 
+/**
+ * Add multiple colors to text with specified angle.
+ *
+ * source: @link{http://chiuki.github.io/advanced-android-textview/}
+ */
+
 public class MultiColorSpan extends CharacterStyle implements UpdateAppearance {
 
     private final int[] colors;
