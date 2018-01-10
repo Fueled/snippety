@@ -1,5 +1,6 @@
 package com.fueled.snippety.core;
 
+import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.text.Layout;
@@ -8,24 +9,30 @@ import android.text.style.AlignmentSpan;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
+import android.text.style.IconMarginSpan;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StrikethroughSpan;
 import android.text.style.StyleSpan;
 import android.text.style.SubscriptSpan;
+import android.text.style.SuggestionSpan;
 import android.text.style.SuperscriptSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 import android.view.View;
 
+import com.fueled.snippety.span.CenteredImageSpan;
+import com.fueled.snippety.span.HorizontalLineSpan;
 import com.fueled.snippety.span.MultiColorSpan;
 import com.fueled.snippety.span.RoundedBackgroundSpan;
 import com.fueled.snippety.span.TextIndentSpan;
 import com.fueled.snippety.span.TextTypefaceSpan;
+import com.fueled.snippety.widget.LineDrawable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Snippety is a wrapper class around different spans (and custom spans) from android.
@@ -84,7 +91,7 @@ public class Snippety {
      * add multi color to text with angle
      *
      * @param colors array of text
-     * @param angle of colors
+     * @param angle  of colors
      * @return Snippety
      */
     public Snippety textMultiColor(int[] colors, int angle) {
@@ -291,6 +298,17 @@ public class Snippety {
     }
 
     /**
+     * add suggestions to @link{{@link android.widget.EditText}}
+     *
+     * @param suggestions suggestions String array
+     * @return Snippety
+     */
+    public Snippety suggestions(String... suggestions) {
+        spans.add(new SuggestionSpan(Locale.getDefault(), suggestions, SuggestionSpan.FLAG_EASY_CORRECT));
+        return this;
+    }
+
+    /**
      * add bullets with specified leadGap and gapWidth
      *
      * @param leadGap  starting gap from left
@@ -303,10 +321,22 @@ public class Snippety {
     }
 
     /**
+     * add image bullets with specified padding
+     *
+     * @param bitmap  bitmap to add as bullet
+     * @param padding padding between bullet and text
+     * @return Snippety
+     */
+    public Snippety imageBullet(Bitmap bitmap, int padding) {
+        spans.add(new IconMarginSpan(bitmap, padding));
+        return this;
+    }
+
+    /**
      * add bullets with specified options
      *
      * @param options for leadGap and gapWidth
-     * @return
+     * @return Snippety
      */
     public Snippety bullet(TextIndentSpan.Options options) {
         spans.add(new TextIndentSpan(options));
@@ -318,7 +348,7 @@ public class Snippety {
      *
      * @param leadGap  starting gap from left
      * @param gapWidth gap between number and text
-     * @param number index in list, not 0 based
+     * @param number   index in list, not 0 based
      * @return Snippety
      */
     public Snippety number(int leadGap, int gapWidth, int number) {
@@ -339,14 +369,47 @@ public class Snippety {
     }
 
     /**
-     * add image drawable
+     * add image drawable and align it to center
      *
      * @param drawable for image
      * @return Snippety
      */
     public Snippety image(Drawable drawable) {
         drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-        spans.add(new ImageSpan(drawable, ImageSpan.ALIGN_BASELINE));
+        spans.add(new CenteredImageSpan(drawable, ImageSpan.ALIGN_BOTTOM));
+        return this;
+    }
+
+    /**
+     * add image drawable
+     *
+     * @param drawable for image
+     * @return Snippety
+     */
+    public Snippety image(Drawable drawable, int verticalAlignment) {
+        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+        spans.add(new ImageSpan(drawable, verticalAlignment));
+        return this;
+    }
+
+    /**
+     * Horizontal line
+     *
+     * @return Snippety
+     */
+    public Snippety hr(float lineWidth, int lineColor) {
+        spans.add(new HorizontalLineSpan(new LineDrawable(lineWidth, lineColor)));
+        return this;
+    }
+
+    /**
+     * Custom horiztontal line
+     *
+     * @param drawable line drawable
+     * @return Snippety
+     */
+    public Snippety hr(Drawable drawable) {
+        spans.add(new HorizontalLineSpan(drawable));
         return this;
     }
 

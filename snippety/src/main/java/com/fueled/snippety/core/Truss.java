@@ -88,6 +88,15 @@ public class Truss {
     }
 
     /**
+     * add specified spans to a space
+     * @param spans
+     * @return Truss
+     */
+    public Truss append(Object spans) {
+        return append(" ", spans);
+    }
+
+    /**
      * append a new line
      *
      * @return Truss
@@ -145,6 +154,15 @@ public class Truss {
      */
     public Truss appendln(String str, Object span) {
         return append(str + NEW_LINE, span);
+    }
+
+    /**
+     * append specified spans to a space
+     * @param span
+     * @return
+     */
+    public Truss appendln(Object span) {
+        return append(" " + NEW_LINE, span);
     }
 
     /**

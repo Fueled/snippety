@@ -100,9 +100,7 @@ public class DemoFragment extends Fragment {
                         new Snippety().underline()) //  UnderlineSpan
 
                 .append("image for ImageSpan")
-
-                .appendln(drawable.toString(),
-                        new Snippety().image(drawable)) //  ImageSpan
+                .appendln(new Snippety().image(drawable)) //  ImageSpan
 
                 .appendln("quote for QuoteSpan",
                         new Snippety().quote(Color.RED))    //  QuoteSpan

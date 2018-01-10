@@ -136,9 +136,7 @@ textView.setText(new Truss()
              new Snippety().underline()) //  UnderlineSpan
 
         .append("image for ImageSpan")
-
-        .appendln(drawable.toString(),
-             new Snippety().image(drawable)) //  ImageSpan
+        .appendln(new Snippety().image(drawable)) //  ImageSpan
 
         .appendln("quote for QuoteSpan",
              new Snippety().quote(Color.RED))    //  QuoteSpan
@@ -186,9 +184,9 @@ textView.setText(new Truss()
 - Image Drawable
 
 ```java
-Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.ic_android_green_24dp);
+Drawable drawable = ContextCompat.getDrawable(getContext(), R.mipmap.ic_launcher);
 textView.setText(new Truss()
-        .append(drawable.toString(), new Snippety().image(drawable))
+        .append(new Snippety().image(drawable))
         .build());
 ```
 
@@ -259,6 +257,31 @@ textView.setText(new Truss()
         .appendln("Number One", new Snippety().number(leadGap, gapWidth, 1))
         .appendln("Number Two", new Snippety().number(leadGap, gapWidth, 2))
         .appendln("Number Three", new Snippety().number(leadGap, gapWidth, 3))
+        .build());
+```
+
+- Unordered List
+
+```java
+int leadGap = getResources().getDimensionPixelOffset(R.dimen.space_medium);
+int gapWidth = getResources().getDimensionPixelOffset(R.dimen.space_xlarge);
+textView.setText(new Truss()
+        .appendln("Number One", new Snippety().bullet(leadGap, gapWidth))
+        .appendln("Number Two", new Snippety().bullet(leadGap, gapWidth))
+        .appendln("Number Three", new Snippety().bullet(leadGap, gapWidth))
+        .build());
+```
+
+- Custom Unordered List
+
+```java
+Drawable drawable = ContextCompat.getDrawable(getContext(), R.mipmap.ic_launcher);
+Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_star_black_24dp);
+int leadGap = getResources().getDimensionPixelOffset(R.dimen.space_medium);
+textView.setText(new Truss()
+        .appendln("Custom Bullet One", new Snippety().imageBullet(bitmap, leadGap))
+        .appendln("Custom Bullet One", new Snippety().imageBullet(bitmap, leadGap))
+        .appendln("Custom Bullet One", new Snippety().imageBullet(bitmap, leadGap))
         .build());
 ```
 
