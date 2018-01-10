@@ -5,6 +5,10 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.text.style.ReplacementSpan;
 
+/**
+ *  Creates a rounded background with specified cornerRadius.
+ */
+
 public class RoundedBackgroundSpan extends ReplacementSpan {
 
     public static final int DEFAULT_CORNER_RADIUS = 16;

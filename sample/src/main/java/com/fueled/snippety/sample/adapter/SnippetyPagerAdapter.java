@@ -4,14 +4,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.fueled.snippety.sample.Constants;
+import com.fueled.snippety.sample.Constant;
 import com.fueled.snippety.sample.fragment.DemoFragment;
 import com.fueled.snippety.sample.fragment.HtmlFragment;
 import com.fueled.snippety.sample.fragment.PageFragment;
 
 public class SnippetyPagerAdapter extends FragmentStatePagerAdapter {
 
-    private String tabTitles[] = {Constants.DEMO_FRAGMENT_TITLE, Constants.PAGE_FRAGMENT_TITLE, Constants.HTML_FRAGMENT_TITLE};
+    private String tabTitles[] = {Constant.DEMO_FRAGMENT_TITLE, Constant.PAGE_FRAGMENT_TITLE, Constant.HTML_FRAGMENT_TITLE};
 
     public SnippetyPagerAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);

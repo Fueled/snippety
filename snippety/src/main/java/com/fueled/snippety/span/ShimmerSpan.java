@@ -11,7 +11,9 @@ import android.text.style.UpdateAppearance;
 import android.util.Property;
 
 /**
- * source: @link{https://photos.google.com/share/AF1QipNJ3mhaVxBd9Gm1U2lAz-HjlN4Xl5CmnSOmq54h_8i71RVJVSa56bUyxyGsTOrf4g?key=dFM2NmVzSm1ScU9JWUYwOVEwZmEySTNVWTZjWTd3}
+ * Imparts shimmer effect to the text.
+ *
+ * source: @link{https://www.youtube.com/watch?v=G55mJvel7iI}
  */
 
 public class ShimmerSpan extends CharacterStyle implements UpdateAppearance {

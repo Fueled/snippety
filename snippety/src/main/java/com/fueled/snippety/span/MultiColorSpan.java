@@ -9,6 +9,8 @@ import android.text.style.CharacterStyle;
 import android.text.style.UpdateAppearance;
 
 /**
+ * Add multiple colors to text with specified angle.
+ *
  * source: @link{http://chiuki.github.io/advanced-android-textview/}
  */
 
