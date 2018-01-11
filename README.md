@@ -28,7 +28,7 @@ dependencies {
 
 # How to use
 
-## Using Truss:
+## Using Truss
 
 `Truss` returns a `CharSequence`. There are 2 ways of using it:
 
@@ -164,6 +164,8 @@ textView.setText(new Truss()
 
 Here are some code snippets for `Snippety` spans (tongue twister :D)
 
+## Text Helper Spans
+
 - Typeface
 
 ```java
@@ -248,6 +250,8 @@ textView.setText(new Truss()
         .build());
 ```
 
+## HTML Helper Spans
+
 - Ordered List
 
 ```java
@@ -282,6 +286,16 @@ textView.setText(new Truss()
         .appendln("Custom Bullet One", new Snippety().imageBullet(bitmap, leadGap))
         .appendln("Custom Bullet Two", new Snippety().imageBullet(bitmap, leadGap))
         .appendln("Custom Bullet Three", new Snippety().imageBullet(bitmap, leadGap))
+        .build());
+```
+
+- Horizontal Line
+
+```java
+int oneDp = getResources().getDimensionPixelOffset(R.dimen.one_dp);
+int colorGrey = ContextCompat.getColor(getContext(), R.color.grey_light);
+textView.setText(new Truss()
+        .appendln(new Snippety().hr(oneDp, colorGrey))
         .build());
 ```
 
