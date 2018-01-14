@@ -7,6 +7,7 @@ import android.text.Layout;
 import android.text.style.AbsoluteSizeSpan;
 import android.text.style.AlignmentSpan;
 import android.text.style.BackgroundColorSpan;
+import android.text.style.BulletSpan;
 import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.IconMarginSpan;
@@ -309,6 +310,16 @@ public class Snippety {
     }
 
     /**
+     * add image bullets with specified padding
+     *
+     * @return Snippety
+     */
+    public Snippety bullet() {
+        spans.add(new BulletSpan());
+        return this;
+    }
+
+    /**
      * add bullets with specified leadGap and gapWidth
      *
      * @param leadGap  starting gap from left
@@ -321,13 +332,26 @@ public class Snippety {
     }
 
     /**
+     * add custom bullets with specified leadGap and gapWidth
+     *
+     * @param leadGap  starting gap from left
+     * @param gapWidth gap between bullet and text
+     * @param data data to show on bullet
+     * @return Snippety
+     */
+    public Snippety bullet(int leadGap, int gapWidth, String data) {
+        spans.add(new TextIndentSpan(new TextIndentSpan.Options(leadGap, gapWidth), data));
+        return this;
+    }
+
+    /**
      * add image bullets with specified padding
      *
      * @param bitmap  bitmap to add as bullet
      * @param padding padding between bullet and text
      * @return Snippety
      */
-    public Snippety imageBullet(Bitmap bitmap, int padding) {
+    public Snippety bullet(Bitmap bitmap, int padding) {
         spans.add(new IconMarginSpan(bitmap, padding));
         return this;
     }
@@ -340,6 +364,18 @@ public class Snippety {
      */
     public Snippety bullet(TextIndentSpan.Options options) {
         spans.add(new TextIndentSpan(options));
+        return this;
+    }
+
+    /**
+     * add bullets with specified options
+     *
+     * @param options for leadGap and gapWidth
+     * @param data data to show on bullet
+     * @return Snippety
+     */
+    public Snippety bullet(TextIndentSpan.Options options, String data) {
+        spans.add(new TextIndentSpan(options, data));
         return this;
     }
 

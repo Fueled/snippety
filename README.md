@@ -260,7 +260,6 @@ int gapWidth = getResources().getDimensionPixelOffset(R.dimen.space_xlarge);
 textView.setText(new Truss()
         .appendln("Number One", new Snippety().number(leadGap, gapWidth, 1))
         .appendln("Number Two", new Snippety().number(leadGap, gapWidth, 2))
-        .appendln("Number Three", new Snippety().number(leadGap, gapWidth, 3))
         .build());
 ```
 
@@ -272,20 +271,29 @@ int gapWidth = getResources().getDimensionPixelOffset(R.dimen.space_xlarge);
 textView.setText(new Truss()
         .appendln("Number One", new Snippety().bullet(leadGap, gapWidth))
         .appendln("Number Two", new Snippety().bullet(leadGap, gapWidth))
-        .appendln("Number Three", new Snippety().bullet(leadGap, gapWidth))
         .build());
 ```
 
 - Custom Unordered List
 
 ```java
+int leadGap = getResources().getDimensionPixelOffset(R.dimen.space_medium);
+int gapWidth = getResources().getDimensionPixelOffset(R.dimen.space_xlarge);
+textView.setText(new Truss()
+        .appendln("Custom Bullet One", new Snippety().bullet(bitmap, leadGap, "I."))
+        .appendln("Custom Bullet Two", new Snippety().bullet(bitmap, leadGap, "II."))
+        .build());
+```
+
+- Image Unordered List
+
+```java
 Drawable drawable = ContextCompat.getDrawable(getContext(), R.mipmap.ic_launcher);
 Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_star_black_24dp);
 int leadGap = getResources().getDimensionPixelOffset(R.dimen.space_medium);
 textView.setText(new Truss()
-        .appendln("Custom Bullet One", new Snippety().imageBullet(bitmap, leadGap))
-        .appendln("Custom Bullet Two", new Snippety().imageBullet(bitmap, leadGap))
-        .appendln("Custom Bullet Three", new Snippety().imageBullet(bitmap, leadGap))
+        .appendln("Image Bullet One", new Snippety().bullet(bitmap, leadGap))
+        .appendln("Image Bullet Two", new Snippety().bullet(bitmap, leadGap))
         .build());
 ```
 
