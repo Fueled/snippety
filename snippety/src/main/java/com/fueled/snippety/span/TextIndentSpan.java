@@ -4,6 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.text.Layout;
+import android.text.TextPaint;
 import android.text.style.LeadingMarginSpan;
 
 /**
@@ -36,7 +37,7 @@ public class TextIndentSpan implements LeadingMarginSpan {
     public void drawLeadingMargin(Canvas c, Paint p, int x, int dir, int top, int baseline,
                                   int bottom, CharSequence text, int start, int end, boolean first, Layout l) {
         if (first) {
-            Paint paint = new Paint(p);
+            TextPaint paint = new TextPaint(p);
 
             paint.setStyle(Paint.Style.FILL);
 
