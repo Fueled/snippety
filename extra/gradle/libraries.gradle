@@ -12,7 +12,7 @@ ext {
 
     //library
     libraryGroup = 'com.github.fueled'
-    libraryVersion = '1.1.0'
+    libraryVersion = '1.1.1'
 
     //android libraries
     supportVersion = '25.3.0'

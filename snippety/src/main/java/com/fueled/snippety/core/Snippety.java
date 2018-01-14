@@ -310,7 +310,7 @@ public class Snippety {
     }
 
     /**
-     * add image bullets with specified padding
+     * add bullets
      *
      * @return Snippety
      */
