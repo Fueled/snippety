@@ -21,7 +21,7 @@ import com.fueled.snippety.sample.util.ViewUtil;
  */
 public class HtmlFragment extends Fragment {
 
-    private int leadGap, gapWidth, oneDp;
+    private int leadWidth, gapWidth, oneDp;
     private int colorAccent, colorGrey;
 
     private TextView textView;
@@ -50,7 +50,7 @@ public class HtmlFragment extends Fragment {
     }
 
     private void initResources() {
-        leadGap = getResources().getDimensionPixelOffset(R.dimen.space_medium);
+        leadWidth = getResources().getDimensionPixelOffset(R.dimen.space_medium);
         gapWidth = getResources().getDimensionPixelOffset(R.dimen.space_xlarge);
         oneDp = getResources().getDimensionPixelOffset(R.dimen.one_dp);
         colorAccent = ContextCompat.getColor(getContext(), R.color.colorAccent);
@@ -74,8 +74,8 @@ public class HtmlFragment extends Fragment {
                 .appendln("Ordered List", new Snippety().fontStyle(Snippety.FontStyle.BOLD))
                 .appendln(new Snippety().hr(oneDp, colorGrey))
 
-                .appendln("Number One", new Snippety().number(leadGap, gapWidth, 1))    //  TextIndentSpan
-                .appendln("Number Two", new Snippety().number(leadGap, gapWidth, 2))
+                .appendln("Number One", new Snippety().number(leadWidth, gapWidth, 1))    //  TextIndentSpan
+                .appendln("Number Two", new Snippety().number(leadWidth, gapWidth, 2))
                 .appendln()
 
                 // Unordered List
@@ -83,8 +83,8 @@ public class HtmlFragment extends Fragment {
                 .appendln("Unordered List", new Snippety().fontStyle(Snippety.FontStyle.BOLD))
                 .appendln(new Snippety().hr(oneDp, colorGrey))
 
-                .appendln("Bullet One", new Snippety().bullet(leadGap, gapWidth))               //  TextIndentSpan
-                .appendln("Bullet Two", new Snippety().bullet(leadGap, gapWidth))
+                .appendln("Bullet One", new Snippety().bullet(leadWidth, gapWidth))               //  TextIndentSpan
+                .appendln("Bullet Two", new Snippety().bullet(leadWidth, gapWidth))
                 .appendln()
 
                 // Custom Unordered List
@@ -92,9 +92,9 @@ public class HtmlFragment extends Fragment {
                 .appendln("Custom Unordered List", new Snippety().fontStyle(Snippety.FontStyle.BOLD))
                 .appendln(new Snippety().hr(oneDp, colorGrey))
 
-                .appendln("Custom Bullet One", new Snippety().bullet(leadGap, gapWidth, "I."))     //  TextIndentSpan
-                .appendln("Custom Bullet Two", new Snippety().bullet(leadGap, gapWidth, "II."))
-                .appendln("Custom Bullet Three", new Snippety().bullet(leadGap, gapWidth, "III."))
+                .appendln("Custom Bullet One", new Snippety().bullet(leadWidth, gapWidth, "I."))     //  TextIndentSpan
+                .appendln("Custom Bullet Two", new Snippety().bullet(leadWidth, gapWidth, "II."))
+                .appendln("Custom Bullet Three", new Snippety().bullet(leadWidth, gapWidth, "III."))
                 .appendln()
 
                 // Image Unordered List
@@ -102,9 +102,9 @@ public class HtmlFragment extends Fragment {
                 .appendln("Image Unordered List", new Snippety().fontStyle(Snippety.FontStyle.BOLD))
                 .appendln(new Snippety().hr(oneDp, colorGrey))
 
-                .appendln("Image Bullet One", new Snippety().bullet(bitmap, leadGap))           //  IconMarginSpan
-                .appendln("Image Bullet Two", new Snippety().bullet(bitmap, leadGap))
-                .appendln("Image Bullet Three", new Snippety().bullet(bitmap, leadGap))
+                .appendln("Image Bullet One", new Snippety().bullet(bitmap, leadWidth))           //  IconMarginSpan
+                .appendln("Image Bullet Two", new Snippety().bullet(bitmap, leadWidth))
+                .appendln("Image Bullet Three", new Snippety().bullet(bitmap, leadWidth))
                 .appendln()
 
                 .build();

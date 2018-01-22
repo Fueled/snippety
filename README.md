@@ -255,33 +255,33 @@ textView.setText(new Truss()
 - Ordered List
 
 ```java
-int leadGap = getResources().getDimensionPixelOffset(R.dimen.space_medium);
+int leadWidth = getResources().getDimensionPixelOffset(R.dimen.space_medium);
 int gapWidth = getResources().getDimensionPixelOffset(R.dimen.space_xlarge);
 textView.setText(new Truss()
-        .appendln("Number One", new Snippety().number(leadGap, gapWidth, 1))
-        .appendln("Number Two", new Snippety().number(leadGap, gapWidth, 2))
+        .appendln("Number One", new Snippety().number(leadWidth, gapWidth, 1))
+        .appendln("Number Two", new Snippety().number(leadWidth, gapWidth, 2))
         .build());
 ```
 
 - Unordered List
 
 ```java
-int leadGap = getResources().getDimensionPixelOffset(R.dimen.space_medium);
+int leadWidth = getResources().getDimensionPixelOffset(R.dimen.space_medium);
 int gapWidth = getResources().getDimensionPixelOffset(R.dimen.space_xlarge);
 textView.setText(new Truss()
-        .appendln("Number One", new Snippety().bullet(leadGap, gapWidth))
-        .appendln("Number Two", new Snippety().bullet(leadGap, gapWidth))
+        .appendln("Bullet One", new Snippety().bullet(leadWidth, gapWidth))
+        .appendln("Bullet Two", new Snippety().bullet(leadWidth, gapWidth))
         .build());
 ```
 
 - Custom Unordered List
 
 ```java
-int leadGap = getResources().getDimensionPixelOffset(R.dimen.space_medium);
+int leadWidth = getResources().getDimensionPixelOffset(R.dimen.space_medium);
 int gapWidth = getResources().getDimensionPixelOffset(R.dimen.space_xlarge);
 textView.setText(new Truss()
-        .appendln("Custom Bullet One", new Snippety().bullet(bitmap, leadGap, "I."))
-        .appendln("Custom Bullet Two", new Snippety().bullet(bitmap, leadGap, "II."))
+        .appendln("Custom Bullet One", new Snippety().bullet(leadWidth, gapWidth, "I."))
+        .appendln("Custom Bullet Two", new Snippety().bullet(leadWidth, gapWidth, "II."))
         .build());
 ```
 
@@ -290,20 +290,20 @@ textView.setText(new Truss()
 ```java
 Drawable drawable = ContextCompat.getDrawable(getContext(), R.mipmap.ic_launcher);
 Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_star_black_24dp);
-int leadGap = getResources().getDimensionPixelOffset(R.dimen.space_medium);
+int padding = getResources().getDimensionPixelOffset(R.dimen.space_medium);
 textView.setText(new Truss()
-        .appendln("Image Bullet One", new Snippety().bullet(bitmap, leadGap))
-        .appendln("Image Bullet Two", new Snippety().bullet(bitmap, leadGap))
+        .appendln("Image Bullet One", new Snippety().bullet(bitmap, padding))
+        .appendln("Image Bullet Two", new Snippety().bullet(bitmap, padding))
         .build());
 ```
 
 - Horizontal Line
 
 ```java
-int oneDp = getResources().getDimensionPixelOffset(R.dimen.one_dp);
-int colorGrey = ContextCompat.getColor(getContext(), R.color.grey_light);
+int lineWidth = getResources().getDimensionPixelOffset(R.dimen.one_dp);
+int lineColor = ContextCompat.getColor(getContext(), R.color.grey_light);
 textView.setText(new Truss()
-        .appendln(new Snippety().hr(oneDp, colorGrey))
+        .appendln(new Snippety().hr(lineWidth, lineColor))
         .build());
 ```
 
